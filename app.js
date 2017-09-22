@@ -9,6 +9,12 @@ app.use(cookieParser());
 
 app.set('view engine', 'pug');
 
+const mainRoutes = require('./routes/index.js');
+const cardRoutes = require('./routes/cards.js');
+
+app.use(mainRoutes);
+app.use('/cards', cardRoutes);
+
 app.use((req, res, next) => {
     console.log('hello');
     const err = new Error('Oh no!');
@@ -20,12 +26,6 @@ app.use((req, res, next) => {
     console.log('world');
     next();
 });
-
-
-
-
-
-
 
 
 app.use((req, res, next) => {
