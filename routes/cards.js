@@ -18,9 +18,12 @@ router.get('/:id', (req, res) => {
 
     if (side === 'question') {
         templateData.hint = hint;
+        return res.render('card-front', templateData);
+    } else {
+        return res.render('card-back', templateData);
     }
     
-    res.render('card', templateData);
+    
 });
 
 router.get('/', (req, res) => {
